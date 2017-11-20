@@ -1,6 +1,8 @@
 package Model;
 
-public class Persona {
+import Controller.OperazioneSuPersona;
+
+public abstract class Persona {
 	
 	private String nome;
 	private String cognome;
@@ -24,5 +26,5 @@ public class Persona {
 		return email;
 	}
 	
-	
+	public abstract void visitTipo(OperazioneSuPersona operazioneSuPersona);
 }

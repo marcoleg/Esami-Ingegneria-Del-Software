@@ -11,6 +11,7 @@ public class TesseraMensa {
 	public TesseraMensa(int id, Persona persona) {
 		this.id = id;
 		this.persona = persona;
+		this.pastoUtente = new ArrayList<Pasto>();
 	}
 
 	public int getId() {
@@ -23,5 +24,9 @@ public class TesseraMensa {
 	
 	public void aggiungiPasto(Pasto pasto) {
 		this.pastoUtente.add(pasto);
+	}
+	
+	public ArrayList<Pasto> getListaPasti(){
+		return this.pastoUtente;
 	}
 }
