@@ -1,9 +1,11 @@
 package Controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import Model.Area;
 import Model.Camera;
+import Model.PrenotazioneCamera;
 
 public class Hotel {
 	
@@ -13,7 +15,6 @@ public class Hotel {
 	private String email;
 	private String nomeDirettore;
 	private String cognomeDirettore;
-	private ArrayList<Camera> listaCamere;
 	private ArrayList<Area> listaAree;
 	
 	public Hotel(String nomeHotel, String indirizzo, String telefono, String nomeDirettore, String cognomeDirettore,String email) {
@@ -23,15 +24,22 @@ public class Hotel {
 		this.email = email;
 		this.nomeDirettore = nomeDirettore;
 		this.cognomeDirettore = cognomeDirettore;
-		this.listaCamere = new ArrayList<Camera>();
 		this.listaAree = new ArrayList<Area>();
-	}
-	
-	public void aggiungiCamera(Camera camera) {
-		this.listaCamere.add(camera);
 	}
 
 	public void aggiungiArea(Area area) {
 		this.listaAree.add(area);
+	}
+	
+	public int calcolaCamereLibere(Area area) {
+		return area.calcolaCamereLibere();
+	}
+	
+	public int calcolaCamereOccupate(Area area) {
+		return area.calcolaCamereOccupate();
+	}
+	
+	public int calcolareCamereDisponibili(Area area) {
+		return area.calcolaCamereDisponibiliNellArea();
 	}
 }
