@@ -1,5 +1,6 @@
 package Controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import Model.Area;
@@ -10,6 +11,7 @@ import Model.Camera;
 import Model.CameraNormale;
 import Model.CameraSuite;
 import Model.PrenotazioneCamera;
+import View.Stampa;
 
 public class Test {
 
@@ -30,6 +32,13 @@ public class Test {
 		Camera cameraNormale2 = new CameraNormale(19, 10, 5);
 		Camera suite3 = new CameraSuite(14, 20, 3);
 		
+		ArrayList<Camera> tutteLeCamere = new ArrayList<Camera>();
+		tutteLeCamere.add(suite1);
+		tutteLeCamere.add(suite2);
+		tutteLeCamere.add(cameraNormale1);
+		tutteLeCamere.add(cameraNormale2);
+		tutteLeCamere.add(suite3);
+		
 		area_1_0.aggiungiCamera(suite1);
 		area_1_1.aggiungiCamera(suite2);
 		area_1_1.aggiungiCamera(suite3);
@@ -40,17 +49,25 @@ public class Test {
 		hotel.aggiungiArea(area_1_1);
 		hotel.aggiungiArea(area_1_2);
 		
-		cameraNormale1.aggiungiPrenotazione(new PrenotazioneCamera((ora - 2L * giorno), (ora + 2L * giorno)));
-		cameraNormale1.aggiungiPrenotazione(new PrenotazioneCamera(ora + 7 * giorno, ora + 9 * giorno));
-		cameraNormale2.aggiungiPrenotazione(new PrenotazioneCamera((ora - 1 * giorno), (ora + 5 * giorno)));
-		suite2.aggiungiPrenotazione(new PrenotazioneCamera((ora - 6 * giorno), (ora - 3 * giorno)));
+		cameraNormale1.aggiungiPrenotazione(new PrenotazioneCamera((ora - 2L * giorno), (ora + 2L * giorno),new ArrayList<OsservatoreSuCamera>()));
+		cameraNormale1.aggiungiPrenotazione(new PrenotazioneCamera(ora + 7 * giorno, ora + 9 * giorno,new ArrayList<OsservatoreSuCamera>()));
+		cameraNormale2.aggiungiPrenotazione(new PrenotazioneCamera((ora - 10 * giorno), (ora - 5 * giorno),new ArrayList<OsservatoreSuCamera>()));
+		suite2.aggiungiPrenotazione(new PrenotazioneCamera((ora - 6 * giorno), (ora - 3 * giorno),new ArrayList<OsservatoreSuCamera>()));
 		
-		System.out.println("Le camere libere sono: " + hotel.calcolaCamereLibere(area_1_0));
-		System.out.println("Le camere occupate sono: " + hotel.calcolaCamereOccupate(area_1_0));
+		Stampa.Stampa("Le camere libere sono: " + hotel.calcolaCamereLibere(area_1_0));
+		Stampa.Stampa("Le camere occupate sono: " + hotel.calcolaCamereOccupate(area_1_0));
 		
-		System.out.println("Le camere disponibili nell'area 0 sono: " + hotel.calcolareCamereDisponibili(area_1_0));
-		System.out.println("Le camere disponibili nell'area 1 sono: " + hotel.calcolareCamereDisponibili(area_1_1));
-		System.out.println("Le camere disponibili nell'area 2 sono: " + hotel.calcolareCamereDisponibili(area_1_2));
+		Stampa.Stampa("Le camere disponibili nell'area 0 sono: " + hotel.calcolareCamereDisponibili(area_1_0));
+		Stampa.Stampa("Le camere disponibili nell'area 1 sono: " + hotel.calcolareCamereDisponibili(area_1_1));
+		Stampa.Stampa("Le camere disponibili nell'area 2 sono: " + hotel.calcolareCamereDisponibili(area_1_2));
+		
+		FiltroTemporale filtroMese = new FiltroMese();
+		
+		Stampa.Stampa("Il guadagno di tutte le camere è: " + hotel.calcola(tutteLeCamere, new CalcoloGuadagnoSuCamera(filtroMese)));
+		Stampa.Stampa("Il guadagno dell'area 0 è di: " + hotel.calcola(area_1_0.getListaCamere(), new CalcoloGuadagnoSuCamera(filtroMese)));
+		Stampa.Stampa("Il guadagno dell'area 1 è di: " + hotel.calcola(area_1_1.getListaCamere(), new CalcoloGuadagnoSuCamera(filtroMese)));
+		Stampa.Stampa("Il guadagno dell'area 2 è di: " + hotel.calcola(area_1_2.getListaCamere(), new CalcoloGuadagnoSuCamera(filtroMese)));
+		
 	}
 
 }
