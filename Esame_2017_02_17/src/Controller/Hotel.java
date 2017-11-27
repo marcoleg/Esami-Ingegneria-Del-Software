@@ -42,4 +42,8 @@ public class Hotel {
 	public int calcolareCamereDisponibili(Area area) {
 		return area.calcolaCamereDisponibiliNellArea();
 	}
+	
+	public int calcola(ArrayList<Camera> camere, CalcoloSuCamera calcolo) {
+		return calcolo.calcola(camere);
+	}
 }

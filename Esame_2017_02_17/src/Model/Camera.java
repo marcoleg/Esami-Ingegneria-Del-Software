@@ -2,6 +2,8 @@ package Model;
 
 import java.util.ArrayList;
 
+import Controller.OperazioneSuCamera;
+
 public abstract class Camera {
 
 	protected int numeroCamera;
@@ -34,5 +36,6 @@ public abstract class Camera {
 	public ArrayList<PrenotazioneCamera> getListaPrenotazioni() {
 		return this.listaPrenotazioni;
 	}
-
+	
+	public abstract void visit(OperazioneSuCamera operazione);
 }
