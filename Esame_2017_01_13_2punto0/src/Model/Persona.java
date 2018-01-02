@@ -1,6 +1,8 @@
 package Model;
 
-public class Persona {
+import Controller.VisitorPersona;
+
+public abstract class Persona {
 
 	private String nome;
 	private String cognome;
@@ -12,5 +14,5 @@ public class Persona {
 		this.email = email;
 	}
 	
-	
+	public abstract void visitaPersona(VisitorPersona visitorPersona);
 }
