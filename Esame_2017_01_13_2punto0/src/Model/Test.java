@@ -63,21 +63,9 @@ public class Test {
 		mensaCaritas.aggiungiPastiATessera(tessera2, listaPastiPersona2);
 		
 		mensaCaritas.eseguiOperazioniSuQuantoSpendonoLePersone();
+		////////////////// SISTEMARE LE ISTRUZIONI DI STAMPA PER I VISITOR SULLE PERSONE
+		mensaCaritas.eseguiOperazioneDiCalcoloDiAcquaFruttaSecondoPerOgniPasto();
 		
-		//VisitorPersona calcoloSuPersona = new OperazioneSuPersona(pasto1);
-		//persona2.visitaPersona(calcoloSuPersona);
-		//persona1.visitaPersona(calcoloSuPersona);
-		
-		FiltroTemporale filtroMese = new FiltroMese();
-		
-		FiltraggioPasti calcoloAcqua = new CalcolaAcqua(filtroMese);
-		System.out.println(calcoloAcqua.calcola(listaPastiPersona1));
-		
-		FiltraggioPasti calcoloSeocondi = new CalcolaSecondi(filtroMese);
-		System.out.println(calcoloSeocondi.calcola(listaPastiPersona1));
-		
-		////////////////// CAPIRE INOLTRE PERCHè NON FUNZIONA IL METODO DEI SECONDI SE PRIMA VA IN ESECUZIONE QUELLO DELLA FRUTTA
-		////////////////// FARE IL VIEW E SISTEMARE QUESTI METODI NELLA CLASSE MADRE MENSA
 		System.out.println("fine.");
 		
 	}

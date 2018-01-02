@@ -6,6 +6,7 @@ import Model.Pasto;
 import Model.Persona;
 import Model.Team;
 import Model.TesseraMensa;
+import View.Stampa;
 
 public class Mensa {
 
@@ -34,6 +35,14 @@ public class Mensa {
 			tessera.aggiungiPastoAllaListaPasti(p);
 	}
 	
+	public ArrayList<Pasto> getListaPasti(){
+		ArrayList<Pasto> listaPasti = new ArrayList<>();
+		for(TesseraMensa tm : this.listaTessereMensa)
+			for(Pasto p : tm.getListaPasti())
+				listaPasti.add(p);
+		return listaPasti;
+	}
+	
 	public void eseguiOperazioniSuQuantoSpendonoLePersone() {
 		for(TesseraMensa tm : this.listaTessereMensa) {
 			for(Pasto p : tm.getListaPasti()) {
@@ -45,5 +54,13 @@ public class Mensa {
 		}
 	}
 	
-	
+	public void eseguiOperazioneDiCalcoloDiAcquaFruttaSecondoPerOgniPasto() {
+		FiltraggioPasti calcoloSeocondi = new CalcolaSecondi(new FiltroMese());
+		FiltraggioPasti calcoloAcqua = new CalcolaAcqua(new FiltroMese());
+		FiltraggioPasti calcoloFrutta = new CalcolaAcqua(new FiltroMese());
+		
+		Stampa.stampa("Il totale dell'acqua è: " + calcoloAcqua.calcola(getListaPasti()));
+		Stampa.stampa("Il totale della frutta è: " + calcoloFrutta.calcola(getListaPasti()));
+		Stampa.stampa("Il totale dei secondi è: " + calcoloSeocondi.calcola(getListaPasti()));
+	}
 }
