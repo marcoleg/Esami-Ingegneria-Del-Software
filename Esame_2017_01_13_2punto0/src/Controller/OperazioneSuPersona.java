@@ -1,8 +1,10 @@
 package Controller;
 
+
 import Model.ConsulenteEsterno;
 import Model.Dipendente;
 import Model.Pasto;
+import View.Stampa;
 
 public class OperazioneSuPersona implements VisitorPersona {
 	

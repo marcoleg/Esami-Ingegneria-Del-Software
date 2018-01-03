@@ -1,5 +1,6 @@
 package Controller;
 
+
 import java.util.ArrayList;
 
 import Model.Pasto;
@@ -14,12 +15,14 @@ public class Mensa {
 	private ArrayList<TesseraMensa> listaTessereMensa;
 	private ArrayList<Team> listaTeam;
 	private String nomeMensa;
+	private ArrayList<OperazioneSulContestoPasto> listaOperazioniSulContestoPasto;
 	
 	public Mensa(String nomeMensa) {
 		this.listaPersone = new ArrayList<Persona>();
 		this.listaTessereMensa = new ArrayList<TesseraMensa>();
 		this.listaTeam = new ArrayList<Team>();
 		this.nomeMensa = nomeMensa;	
+		this.listaOperazioniSulContestoPasto = new ArrayList<>();
 	}
 	
 	public void aggiungiPersona(Persona persona) {	
@@ -31,8 +34,15 @@ public class Mensa {
 	}
 	
 	public void aggiungiPastiATessera(TesseraMensa tessera, ArrayList<Pasto> listaPastiDaAggiungere) {
-		for(Pasto p : listaPastiDaAggiungere)
+		for(Pasto p : listaPastiDaAggiungere) {
 			tessera.aggiungiPastoAllaListaPasti(p);
+			for(OperazioneSulContestoPasto opscp : this.listaOperazioniSulContestoPasto)
+				opscp.esegui(tessera);
+		}
+	}
+	
+	public void aggiungiOperazioneAllaListaDelleOperazioniSulContestoPasto(OperazioneSulContestoPasto operazioneSulContestoPasto) {
+		this.listaOperazioniSulContestoPasto.add(operazioneSulContestoPasto);
 	}
 	
 	public ArrayList<Pasto> getListaPasti(){
@@ -59,8 +69,8 @@ public class Mensa {
 		FiltraggioPasti calcoloAcqua = new CalcolaAcqua(new FiltroMese());
 		FiltraggioPasti calcoloFrutta = new CalcolaAcqua(new FiltroMese());
 		
-		Stampa.stampa("Il totale dell'acqua è: " + calcoloAcqua.calcola(getListaPasti()));
-		Stampa.stampa("Il totale della frutta è: " + calcoloFrutta.calcola(getListaPasti()));
-		Stampa.stampa("Il totale dei secondi è: " + calcoloSeocondi.calcola(getListaPasti()));
+		Stampa.stampa("Il totale dell'acqua venduta è: " + calcoloAcqua.calcola(getListaPasti()));
+		Stampa.stampa("Il totale della frutta venduta è: " + calcoloFrutta.calcola(getListaPasti()));
+		Stampa.stampa("Il totale dei secondi venduti sono: " + calcoloSeocondi.calcola(getListaPasti()));
 	}
 }

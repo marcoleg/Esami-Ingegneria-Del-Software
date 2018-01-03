@@ -14,5 +14,9 @@ public abstract class Persona {
 		this.email = email;
 	}
 	
+	public String getNomeECognome() {
+		return this.nome + " " + this.cognome;
+	}
+	
 	public abstract void visitaPersona(VisitorPersona visitorPersona);
 }

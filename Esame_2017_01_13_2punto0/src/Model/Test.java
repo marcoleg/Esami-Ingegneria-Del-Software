@@ -10,7 +10,10 @@ import Controller.FiltraggioPasti;
 import Controller.FiltroMese;
 import Controller.FiltroTemporale;
 import Controller.Mensa;
+import Controller.NotificaViaMailPerOgniPasto;
 import Controller.OperazioneSuPersona;
+import Controller.OperazioneSulContestoPasto;
+import Controller.StampareNomeUtentePerOgniPasto;
 import Controller.VisitorPersona;
 
 public class Test {
@@ -39,6 +42,11 @@ public class Test {
 		long dieciGiorniFa =  10L * 24L * 60L * 60L * 1000L;
 		long dueMesiFa = 60L * 24L * 60L * 60L * 1000L;
 		
+		OperazioneSulContestoPasto operazioneDiNotificaViaEmail = new NotificaViaMailPerOgniPasto();
+		OperazioneSulContestoPasto operazioneDiStampaDellaPersonaCheConsumaIlPasto = new StampareNomeUtentePerOgniPasto();
+		mensaCaritas.aggiungiOperazioneAllaListaDelleOperazioniSulContestoPasto(operazioneDiStampaDellaPersonaCheConsumaIlPasto);
+		mensaCaritas.aggiungiOperazioneAllaListaDelleOperazioniSulContestoPasto(operazioneDiNotificaViaEmail);
+		
 		Date dataPasto1 = new Date(ora);
 		Pasto pasto1 = new Primo(dataPasto1);
 		
@@ -63,10 +71,8 @@ public class Test {
 		mensaCaritas.aggiungiPastiATessera(tessera2, listaPastiPersona2);
 		
 		mensaCaritas.eseguiOperazioniSuQuantoSpendonoLePersone();
-		////////////////// SISTEMARE LE ISTRUZIONI DI STAMPA PER I VISITOR SULLE PERSONE
-		mensaCaritas.eseguiOperazioneDiCalcoloDiAcquaFruttaSecondoPerOgniPasto();
 		
-		System.out.println("fine.");
+		mensaCaritas.eseguiOperazioneDiCalcoloDiAcquaFruttaSecondoPerOgniPasto();
 		
 	}
 
