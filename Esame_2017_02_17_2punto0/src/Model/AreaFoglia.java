@@ -28,4 +28,25 @@ public class AreaFoglia extends Area {
 		throw new IllegalComponentStateException("Un'Area foglia non può avere figli!");
 	}
 
+	@Override
+	public int calcolaCamereLibere() {
+		int numeroCamereLibere = 0;
+		
+		for(Camera camera : this.getListaCamere())
+			if(camera.eLibera())
+				numeroCamereLibere++;
+		
+		return numeroCamereLibere;
+	}
+
+	@Override
+	public int calcolaCamereOccupate() {
+		int numeroCamereTotali = 0;
+		
+		for(Camera camera : this.listaCamereDellArea)
+			numeroCamereTotali++;
+		
+		return numeroCamereTotali;
+	}
+
 }

@@ -14,8 +14,14 @@ public abstract class Area {
 		this.listaCamereDellArea.add(camera);
 	}
 	
+	public ArrayList<Camera> getListaCamere(){
+		return this.listaCamereDellArea;
+	}
+	
 	public abstract Area getPadre();
 	public abstract ArrayList<Area> getFigli();
 	public abstract void aggiungiFiglio(Area figlio);
+	public abstract int calcolaCamereLibere();
+	public abstract int calcolaCamereOccupate();
 	
 }

@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.Date;
+
 public class Camera {
 
 	private int numeroCamera;
@@ -14,5 +16,11 @@ public class Camera {
 		this.prenotazioneCamera = prenotazioneCamera;
 	}
 	
-	
+	public boolean eLibera() {
+		Date ora = new Date();
+		if(this.prenotazioneCamera.getDataFine() - ora.getTime() > 0 && ora.getTime() - this.prenotazioneCamera.getDataInizio() > 0)
+			return false;
+		else
+			return true;
+	}
 }

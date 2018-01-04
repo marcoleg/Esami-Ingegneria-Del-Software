@@ -29,4 +29,31 @@ public class AreaInterna extends Area {
 		this.listaAreeFiglie.add(figlio);
 	}
 
+	@Override
+	public int calcolaCamereLibere() {
+		int numeroCamereLibereTemporaneo = 0;
+		
+		for(Camera camera : this.listaCamereDellArea)
+			if(camera.eLibera())
+				numeroCamereLibereTemporaneo++;
+		
+		for(Area area : this.listaAreeFiglie)
+			numeroCamereLibereTemporaneo += area.calcolaCamereLibere();
+		
+		return numeroCamereLibereTemporaneo;
+	}
+
+	@Override
+	public int calcolaCamereOccupate() {
+		int numeroCamereTotali = 0;
+		
+		for(Camera camera : this.getListaCamere())
+			numeroCamereTotali++;
+		
+		for(Area area : this.listaAreeFiglie)
+			numeroCamereTotali += area.calcolaCamereOccupate();
+		
+		return numeroCamereTotali;
+	}
+
 }
