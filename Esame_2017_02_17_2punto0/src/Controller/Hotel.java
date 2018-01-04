@@ -13,6 +13,7 @@ public class Hotel {
 	private String emailHotel;
 	private String indirizzo;
 	private ArrayList<Area> listaAree;
+	private ArrayList<Camera> listaCamere;
 	
 	public Hotel(String nomeHotel, String nomeDirettore, long numeroHotel, String emailHotel, String indirizzo) {
 		this.nomeHotel = nomeHotel;
@@ -21,6 +22,7 @@ public class Hotel {
 		this.emailHotel = emailHotel;
 		this.indirizzo = indirizzo;
 		this.listaAree = new ArrayList<>();
+		this.listaCamere = new ArrayList<>();
 	}
 	
 	public void aggiungiAreaAllaListaDelleAree(Area area) {
@@ -34,6 +36,11 @@ public class Hotel {
 			}
 		}
 		area.aggiungiCameraAllaListaDelleCamere(camera);
+		this.listaCamere.add(camera);
+	}
+	
+	public ArrayList<Camera> getListaCamere(){
+		return this.listaCamere;
 	}
 	
 }
