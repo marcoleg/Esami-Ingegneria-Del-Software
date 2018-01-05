@@ -62,6 +62,9 @@ public class Test {
 		Stampa.stampa("Le camere libere nell'Hotel sono: " + area1.calcolaCamereLibere());
 		Stampa.stampa("Le camere occupate nell'Hotel sono: " + area1.calcolaCamereOccupate());
 		Stampa.stampa("Le camere libere nell'Area 2 sono: " + area2.calcolaCamereLibere());
+		
+		// se un'interfaccia è implementata da una classe astratta che è estesa da una classe concreta, allora posso istanziare la classe concreta come:
+		// INTERFACCIA nomeVariabile = new CLASSECONCRETA();
 
 	}
 
