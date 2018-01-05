@@ -8,4 +8,5 @@ public interface Cliente {
 	public String getCognome();
 	public String getDataNascita();
 	public void visitCliente(VisitorCliente visitorPersona);
+	
 }

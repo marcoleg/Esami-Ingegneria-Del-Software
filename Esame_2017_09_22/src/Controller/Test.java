@@ -36,7 +36,8 @@ public class Test {
 		viaggioVenduto1.aggiungiCliente(luca2);
 		viaggioVenduto1.aggiungiCliente(marco2);
 		
-		agenziaViaggiMarcoEluca.stampaCostoTotaleInBaseAlNumeroDiPersone(new OperazioneDiCalcoloInBaseAlCliente(pacchetto1, viaggioVenduto1.getListaClienti()),	viaggioVenduto1);
+		agenziaViaggiMarcoEluca.stampaCostoTotaleInBaseAlNumeroDiPersone(new OperazioneDiCalcoloInBaseAlCliente(viaggioVenduto1.getPacchettoViaggio(), viaggioVenduto1.getListaClienti())
+																			, viaggioVenduto1);
 		
 		System.out.println("fine!");
 	}
