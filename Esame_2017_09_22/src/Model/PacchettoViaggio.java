@@ -23,4 +23,8 @@ public class PacchettoViaggio {
 	public int getCosto() {
 		return this.costo;
 	}
+	
+	public Citta getCitta() {
+		return this.citta;
+	}
 }

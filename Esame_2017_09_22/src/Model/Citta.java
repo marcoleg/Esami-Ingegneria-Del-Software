@@ -12,4 +12,16 @@ public class Citta {
 		Continente = continente;
 	}
 	
+	public String getNomeCitta() {
+		return this.nomeCitta;
+	}
+	
+	public String getNomeNazione() {
+		return this.Nazione;
+	}
+
+	public String getNomeContinente() {
+		return this.Continente;
+	}
+	
 }

@@ -26,8 +26,8 @@ public class ViaggioVenduto {
 		this.listaClienti.add(cliente);
 	}
 	
-	public void stampaCostoTotaleInBaseAlNumeroDiPersone(OperazioneDiCalcoloCostoSuViaggio operazione) {
-		Stampa.stampa("Il costo totale del viaggio venduto è di: " + operazione.calcolaCosto());
+	public String stampaCostoTotaleInBaseAlNumeroDiPersone(OperazioneDiCalcoloCostoSuViaggio operazione) {
+		return "Il costo totale del viaggio venduto è di: " + operazione.calcolaCosto();
 	}
 	
 	public PacchettoViaggio getPacchettoViaggio() {
@@ -37,5 +37,14 @@ public class ViaggioVenduto {
 	public ArrayList<Cliente> getListaClienti(){
 		return this.listaClienti;
 	}
+	
+	public long getDataInizio() {
+		return this.dataInizio;
+	}
+	
+	public int getCostoTotaleViaggio() {
+		return this.costoTotaleInBaseAlNumeroDiPersone;
+	}
+	
 
 }
