@@ -28,7 +28,9 @@ public class Test {
 		GruppoDiInsegnamento gruppo1 = new GruppoDiInsegnamentoRadice();
 		gruppo1.aggiungiEsameAllaListaDegliEsamiDiQuestoGruppo(esameIngegneriaDelSoftware);
 		
-		marcoLegittimo.aggiungiEsameAlLibretto(gruppo1, esameIngegneriaDelSoftware);
+		marcoLegittimo.aggiungiEsameAlLibretto(gruppo1, esameIngegneriaDelSoftware, 18);
+		
+		System.out.println("fine!");
 	}
 
 }

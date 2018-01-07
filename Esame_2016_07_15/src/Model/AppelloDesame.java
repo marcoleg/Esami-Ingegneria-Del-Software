@@ -15,4 +15,8 @@ public class AppelloDesame {
 	public void setIscrizione() {
 		this.iscrizione = true;
 	}
+	
+	public void setEsito(int esito) {
+		this.esito = esito;
+	}
 }

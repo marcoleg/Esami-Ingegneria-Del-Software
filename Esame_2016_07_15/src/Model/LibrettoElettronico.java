@@ -10,5 +10,7 @@ public class LibrettoElettronico {
 		this.listaGruppiDiInsegnamento = new ArrayList<>();
 	}
 	
-	
+	public void aggiungiGruppoDinsegnamento(GruppoDiInsegnamento gruppo) {
+		this.listaGruppiDiInsegnamento.add(gruppo);
+	}
 }

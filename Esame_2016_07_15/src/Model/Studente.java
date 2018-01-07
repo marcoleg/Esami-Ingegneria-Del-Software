@@ -27,6 +27,10 @@ public class Studente {
 		this.appelliIscritti.get(this.appelliIscritti.indexOf(appelloDesame)).setIscrizione();
 	}
 	
-	
+	public void aggiungiEsameAlLibretto(GruppoDiInsegnamento gruppo, Esame esame, int esito) {
+		esame.getAppello().setEsito(esito);
+		gruppo.aggiungiEsameAllaListaDegliEsamiDiQuestoGruppo(esame);
+		this.librettoElettronico.aggiungiGruppoDinsegnamento(gruppo);
+	}
 	
 }

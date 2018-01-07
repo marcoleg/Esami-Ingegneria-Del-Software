@@ -12,4 +12,8 @@ public class Esame {
 		this.cognomeProfessore = cognomeProfessore;
 	}
 	
+	public AppelloDesame getAppello() {
+		return this.appelloDesame;
+	}
+	
 }
