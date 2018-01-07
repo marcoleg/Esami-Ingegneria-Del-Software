@@ -1,6 +1,11 @@
-package Model;
+package Controller;
 
 import java.util.ArrayList;
+
+import Model.Biglietto;
+import Model.Cliente;
+import Model.Tratta;
+import Model.Viaggio;
 
 public class Agenzia {
 
