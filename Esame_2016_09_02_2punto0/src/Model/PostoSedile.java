@@ -8,4 +8,7 @@ public class PostoSedile {
 		this.numeroPosto = numeroPosto;
 	}
 	
+	public int getNumeroPosto() {
+		return this.numeroPosto;
+	}
 }
