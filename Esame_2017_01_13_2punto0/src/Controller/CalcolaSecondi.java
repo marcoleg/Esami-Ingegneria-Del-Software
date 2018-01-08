@@ -14,7 +14,7 @@ public class CalcolaSecondi extends FiltraggioPasti implements OperazioneSuPasto
 	
 	public CalcolaSecondi(FiltroTemporale filtroTemporale) {
 		super(filtroTemporale);
-		risultato = 0;
+		this.risultato = 0;
 	}
 
 	@Override

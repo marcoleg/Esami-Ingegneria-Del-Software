@@ -14,6 +14,10 @@ public abstract class GruppoDiInsegnamento {
 		this.listaEsami.add(esame);
 	}
 	
+	public ArrayList<Esame> getListaEsami(){
+		return this.listaEsami;
+	}
+	
 	public abstract GruppoDiInsegnamento getPadre();
 	public abstract ArrayList<GruppoDiInsegnamento> getFigli();
 	public abstract void aggiungiFiglio(GruppoDiInsegnamento figlio);

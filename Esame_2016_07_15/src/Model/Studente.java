@@ -8,23 +8,23 @@ public class Studente {
 	private String nomeStudente;
 	private String cognomeStudente;
 	private LibrettoElettronico librettoElettronico;
-	private ArrayList<AppelloDesame> appelliIscritti;
+	private ArrayList<Esame> esamiIscritti;
 	
 	public Studente(int matricola, String nomeStudente, String cognomeStudente) {
 		this.matricola = matricola;
 		this.nomeStudente = nomeStudente;
 		this.cognomeStudente = cognomeStudente;
 		this.librettoElettronico = new LibrettoElettronico();
-		this.appelliIscritti = new ArrayList<>();
+		this.esamiIscritti = new ArrayList<>();
 	}
 
 	public LibrettoElettronico getLibrettoElettronico() {
 		return this.librettoElettronico;
 	}
 	
-	public void aggiungiAppelloAgliAppelliPartecipanti(AppelloDesame appelloDesame) {
-		this.appelliIscritti.add(appelloDesame);
-		this.appelliIscritti.get(this.appelliIscritti.indexOf(appelloDesame)).setIscrizione();
+	public void aggiungiAppelloAgliAppelliPartecipanti(Esame appelloDesame) {
+		this.esamiIscritti.add(appelloDesame);
+		this.esamiIscritti.get(this.esamiIscritti.indexOf(appelloDesame)).getAppello().setIscrizione();
 	}
 	
 	public void aggiungiEsameAlLibretto(GruppoDiInsegnamento gruppo, Esame esame, int esito) {
