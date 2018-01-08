@@ -2,7 +2,9 @@ package Model;
 
 import java.util.ArrayList;
 
-public class Studente {
+import Controller.VisitorStudente;
+
+public abstract class Studente {
 
 	private int matricola;
 	private String nomeStudente;
@@ -22,15 +24,16 @@ public class Studente {
 		return this.librettoElettronico;
 	}
 	
-	public void aggiungiAppelloAgliAppelliPartecipanti(Esame appelloDesame) {
-		this.esamiIscritti.add(appelloDesame);
-		this.esamiIscritti.get(this.esamiIscritti.indexOf(appelloDesame)).getAppello().setIscrizione();
+	public void aggiungiAppelloAgliAppelliPartecipanti(Esame esame) {
+		this.esamiIscritti.add(esame);
+		this.esamiIscritti.get(this.esamiIscritti.indexOf(esame)).getAppello().setIscrizione();
 	}
 	
 	public void aggiungiEsameAlLibretto(Esame esame, int esito) {
 		esame.getAppello().setEsito(esito);
-		//gruppo.aggiungiEsameAllaListaDegliEsamiDiQuestoGruppo(esame);
 		this.librettoElettronico.aggiungiEsameAlLibretto(esame);
 	}
+	
+	public abstract void visit(VisitorStudente visitorStudente);
 	
 }

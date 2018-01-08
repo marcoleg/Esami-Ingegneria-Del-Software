@@ -7,8 +7,8 @@ public class EsameInterno extends Esame {
 	private ArrayList<Esame> listaEsamiFigli;
 	private Esame padre;
 
-	public EsameInterno(Esame padre, String nomeCorso, String cognomeProfessore, AppelloDesame appelloDesame) {
-		super(cognomeProfessore, cognomeProfessore, appelloDesame);
+	public EsameInterno(Esame padre, String nomeCorso, String cognomeProfessore, String emailProfessore, AppelloDesame appelloDesame) {
+		super(nomeCorso, cognomeProfessore, emailProfessore, appelloDesame);
 		this.listaEsamiFigli = new ArrayList<>();
 		this.padre = padre;
 		this.padre.aggiungiFiglio(this);
@@ -27,6 +27,11 @@ public class EsameInterno extends Esame {
 	@Override
 	public void aggiungiFiglio(Esame figlio) {
 		this.listaEsamiFigli.add(figlio);
+	}
+
+	@Override
+	public boolean isRadice() {
+		return false;
 	}
 
 }
