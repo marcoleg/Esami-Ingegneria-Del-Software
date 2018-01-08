@@ -2,28 +2,28 @@ package Model;
 
 import java.util.ArrayList;
 
-public class GruppoDiInsegnamentoFoglia extends GruppoDiInsegnamento {
+public class EsameFoglia extends Esame {
 
-	private GruppoDiInsegnamento padre;
+	private Esame padre;
 	
-	public GruppoDiInsegnamentoFoglia(GruppoDiInsegnamento padre) {
-		super();
+	public EsameFoglia(Esame padre, String nomeCorso, String cognomeProfessore, AppelloDesame appelloDesame) {
+		super(cognomeProfessore, cognomeProfessore, appelloDesame);
 		this.padre = padre;
 		this.getPadre().aggiungiFiglio(this);
 	}
 
 	@Override
-	public GruppoDiInsegnamento getPadre() {
+	public Esame getPadre() {
 		return this.padre;
 	}
 
 	@Override
-	public ArrayList<GruppoDiInsegnamento> getFigli() {
+	public ArrayList<Esame> getFigli() {
 		throw new IllegalStateException("Un esame foglia non può avere figli!");
 	}
 
 	@Override
-	public void aggiungiFiglio(GruppoDiInsegnamento figlio) {
+	public void aggiungiFiglio(Esame figlio) {
 		throw new IllegalStateException("Un esame foglia non può avere figli!");
 	}
 

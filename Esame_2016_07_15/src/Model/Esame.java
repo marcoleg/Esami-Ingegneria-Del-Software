@@ -1,7 +1,9 @@
 package Model;
 
-public class Esame {
+import java.util.ArrayList;
 
+public abstract class Esame {
+	
 	private AppelloDesame appelloDesame;
 	private String nomeCorso;
 	private String cognomeProfessore;
@@ -15,5 +17,17 @@ public class Esame {
 	public AppelloDesame getAppello() {
 		return this.appelloDesame;
 	}
+	
+	public Esame getEsame(){
+		return this;
+	}
+	
+	public String getNome() {
+		return this.nomeCorso;
+	}
+	
+	public abstract Esame getPadre();
+	public abstract ArrayList<Esame> getFigli();
+	public abstract void aggiungiFiglio(Esame figlio);
 	
 }

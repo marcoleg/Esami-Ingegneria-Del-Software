@@ -4,13 +4,20 @@ import java.util.ArrayList;
 
 public class LibrettoElettronico {
 
-	private ArrayList<GruppoDiInsegnamento> listaGruppiDiInsegnamento;
+	private ArrayList<Esame> listaEsami;
 	
 	public LibrettoElettronico() {
-		this.listaGruppiDiInsegnamento = new ArrayList<>();
+		this.listaEsami = new ArrayList<>();
 	}
 	
-	public void aggiungiGruppoDinsegnamento(GruppoDiInsegnamento gruppo) {
-		this.listaGruppiDiInsegnamento.add(gruppo);
+	public void aggiungiEsameAlLibretto(Esame esame) {
+		this.listaEsami.add(esame);
+	}
+	
+	public String controlla(Esame esame) {
+		for(Esame e : this.listaEsami)
+			if(esame.getPadre() == e)
+				return "Lo studente può iscriversi all'esame di " + esame.getNome();
+		throw new IllegalStateException("Lo studente non può iscriversi all'esame di " + esame.getNome() + " poichè non ha le propedeuticità necessarie!");
 	}
 }

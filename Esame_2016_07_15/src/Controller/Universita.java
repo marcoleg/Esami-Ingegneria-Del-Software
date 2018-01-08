@@ -4,34 +4,31 @@ import java.util.ArrayList;
 
 import Model.AppelloDesame;
 import Model.Esame;
-import Model.GruppoDiInsegnamento;
+import Model.Esame;
 import Model.Studente;
+import View.Stampa;
 
 public class Universita {
 	
 	private ArrayList<Studente> listaStudenti;
-	private ArrayList<GruppoDiInsegnamento> listaGruppiDiInsegnamento;
 	private ArrayList<Esame> listaEsami;
 	
 	public Universita() {
 		this.listaEsami = new ArrayList<>();
 		this.listaStudenti = new ArrayList<>();
-		this.listaGruppiDiInsegnamento = new ArrayList<>();
 	}
 
 	public void aggiungiEsameAcuiLoStudenteSiIscrive(Studente studente, Esame esame) {
-		//for(GruppoDiInsegnamento gruppo : this.listaGruppiDiInsegnamento)
-			//if(gruppo.getListaEsami().contains(esame))
+		Stampa.stampa(studente.getLibrettoElettronico().controlla(esame));
 		studente.aggiungiAppelloAgliAppelliPartecipanti(esame);
 	}
 	
-	public void aggiungiEsameAlLibrettoDelloStudente(Studente studente, GruppoDiInsegnamento gruppo, Esame esame, int esito) {
-		studente.aggiungiEsameAlLibretto(gruppo, esame, esito);
+	public void aggiungiEsameAlLibrettoDelloStudente(Studente studente, Esame esame, int esito) {
+		studente.aggiungiEsameAlLibretto(esame, esito);
 	}
 	
-	public void aggiungiEsameAllaListaDegliEsami(GruppoDiInsegnamento gruppo, Esame esame) {
-		this.listaGruppiDiInsegnamento.add(gruppo);
+	public void aggiungiEsameAllaListaDegliEsami(Esame esame) {
 		this.listaEsami.add(esame);
-		gruppo.aggiungiEsameAllaListaDegliEsamiDiQuestoGruppo(esame);
+		//gruppo.aggiungiEsameAllaListaDegliEsamiDiQuestoGruppo(esame);
 	}
 }
