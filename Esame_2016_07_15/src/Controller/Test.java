@@ -29,11 +29,6 @@ public class Test {
 		AppelloDesame appello1IngDelSoftware = new AppelloDesame(ora.getTime() - unaSettimana);	
 		Esame esameIngegneriaDelSoftware = new EsameInterno(esameFittizio, "Ingegneria Del SW","Romeo","romeo@romeo.it", appello1IngDelSoftware);
 		
-		//Esame gruppo1 = new EsameRadice();
-		// PROBLEMA: se aggiungo un esame senza esito (cioè prevedo l'esistenza di esami in generale senza che nessuno li abbia fatti), 
-		// nel libretto come faccio a metterli cambiandogli l'esito??
-		// devo tenere per forza una copia dell'esame in memoria per fare un check sul fatto se posso far iscrivere lo studente o meno
-		
 		universitaDegliStudiDiPerugia.aggiungiEsameAllaListaDegliEsami(esameFittizio);
 		universitaDegliStudiDiPerugia.aggiungiEsameAcuiLoStudenteSiIscrive(marcoLegittimo, esameFittizio);
 		universitaDegliStudiDiPerugia.aggiungiEsameAlLibrettoDelloStudente(marcoLegittimo, esameFittizio, 1000);
